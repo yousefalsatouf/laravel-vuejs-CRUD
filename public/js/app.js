@@ -1962,9 +1962,44 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
-  mounted: function mounted() {
-    console.log('Example Component mounted.');
+  data: function data() {
+    return {
+      post: {}
+    };
+  },
+  created: function created() {
+    var _this = this;
+
+    var uri = "http://vuelaravelcrud.test/api/post/edit/".concat(this.$route.params.id);
+    this.axios.get(uri).then(function (response) {
+      _this.post = response.data;
+    });
+  },
+  methods: {
+    updatePost: function updatePost() {
+      var _this2 = this;
+
+      var uri = "http://vuelaravelcrud.test/api/post/update/".concat(this.$route.params.id);
+      this.axios.post(uri, this.post).then(function (response) {
+        _this2.$router.push({
+          name: 'posts'
+        });
+      });
+    }
   }
 });
 
@@ -20527,23 +20562,93 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c("h1", [_vm._v("Edit Post")]),
+    _vm._v(" "),
+    _c(
+      "form",
+      {
+        on: {
+          submit: function($event) {
+            $event.preventDefault()
+            return _vm.updatePost($event)
+          }
+        }
+      },
+      [
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-6" }, [
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", [_vm._v("Post Title:")]),
+              _vm._v(" "),
+              _c("input", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.post.title,
+                    expression: "post.title"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { type: "text" },
+                domProps: { value: _vm.post.title },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.post, "title", $event.target.value)
+                  }
+                }
+              })
+            ])
+          ])
+        ]),
+        _vm._v(" "),
+        _c("div", { staticClass: "row" }, [
+          _c("div", { staticClass: "col-md-6" }, [
+            _c("div", { staticClass: "form-group" }, [
+              _c("label", [_vm._v("Post Body:")]),
+              _vm._v(" "),
+              _c("textarea", {
+                directives: [
+                  {
+                    name: "model",
+                    rawName: "v-model",
+                    value: _vm.post.body,
+                    expression: "post.body"
+                  }
+                ],
+                staticClass: "form-control",
+                attrs: { rows: "5" },
+                domProps: { value: _vm.post.body },
+                on: {
+                  input: function($event) {
+                    if ($event.target.composing) {
+                      return
+                    }
+                    _vm.$set(_vm.post, "body", $event.target.value)
+                  }
+                }
+              })
+            ])
+          ])
+        ]),
+        _c("br"),
+        _vm._v(" "),
+        _vm._m(0)
+      ]
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "row justify-content-center" }, [
-      _c("div", { staticClass: "col-md-8" }, [
-        _c("div", { staticClass: "card card-default" }, [
-          _c("div", { staticClass: "card-header" }, [_vm._v("Edit Component")]),
-          _vm._v(" "),
-          _c("div", { staticClass: "card-body" }, [
-            _vm._v("\n                I'm an Edit component.\n            ")
-          ])
-        ])
-      ])
+    return _c("div", { staticClass: "form-group" }, [
+      _c("button", { staticClass: "btn btn-primary" }, [_vm._v("Update")])
     ])
   }
 ]
