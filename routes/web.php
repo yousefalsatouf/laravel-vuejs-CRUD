@@ -11,6 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// with this route we push any url to the same page ...
+// to define the route via vue u need to set the rout here like the next ...
+
+Route::get('/{any}', function () {
+    return view('post');
+})->where('any', '.*');
