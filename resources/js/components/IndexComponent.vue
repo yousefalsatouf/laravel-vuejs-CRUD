@@ -15,7 +15,7 @@
             <tr>
                 <th>ID</th>
                 <th>Item Name</th>
-                <th>Item Price</th>
+                <th>Item Content</th>
                 <th>Actions</th>
             </tr>
             </thead>

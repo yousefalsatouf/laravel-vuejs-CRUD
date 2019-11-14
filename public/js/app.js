@@ -20693,11 +20693,11 @@ var staticRenderFns = [
     return _c("div", { staticClass: "row justify-content-center" }, [
       _c("div", { staticClass: "col-md-8" }, [
         _c("div", { staticClass: "card card-default" }, [
-          _c("div", { staticClass: "card-header" }, [_vm._v("Home Component")]),
+          _c("div", { staticClass: "card-header" }, [_vm._v("To DO List ")]),
           _vm._v(" "),
           _c("div", { staticClass: "card-body" }, [
             _vm._v(
-              "\n                I'm the Home Component component.\n            "
+              "\n                This is the TO DO LIST Home page !\n            "
             )
           ])
         ])
@@ -20811,7 +20811,7 @@ var staticRenderFns = [
         _vm._v(" "),
         _c("th", [_vm._v("Item Name")]),
         _vm._v(" "),
-        _c("th", [_vm._v("Item Price")]),
+        _c("th", [_vm._v("Item Content")]),
         _vm._v(" "),
         _c("th", [_vm._v("Actions")])
       ])
