@@ -36,7 +36,7 @@
             }
         },
         created() {
-            let uri = `http://vuelaravelcrud.test/api/post/edit/${this.$route.params.id}`;
+            let uri = `http://127.0.0.1:8000/api/post/edit/${this.$route.params.id}`;
             this.axios.get(uri).then((response) => {
                 this.post = response.data;
             });
