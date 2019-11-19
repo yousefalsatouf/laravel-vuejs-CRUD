@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="8ea32d8c-c54e-4a61-a45c-c9b1909671a2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/EditComponent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/EditComponent.vue" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -116,7 +118,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../laravel-todolist" />
+    <property name="last_opened_file_path" value="D:/WEB-MASTER/3emeAnne/Projet Web Dynamique/Pratique/web-project-2020" />
     <property name="nodejs_package_manager_path" value="npm" />
   </component>
   <component name="RecentsManager">
@@ -154,7 +156,9 @@
       <updated>1573724831069</updated>
       <workItem from="1573724832456" duration="11499000" />
       <workItem from="1573814488145" duration="3664000" />
-      <workItem from="1574070487794" duration="3980000" />
+      <workItem from="1574070487794" duration="5204000" />
+      <workItem from="1574103296344" duration="635000" />
+      <workItem from="1574151918539" duration="379000" />
     </task>
     <servers />
   </component>

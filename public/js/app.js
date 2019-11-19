@@ -1993,7 +1993,7 @@ __webpack_require__.r(__webpack_exports__);
     updatePost: function updatePost() {
       var _this2 = this;
 
-      var uri = "http://vuelaravelcrud.test/api/post/update/".concat(this.$route.params.id);
+      var uri = "http://127.0.0.1:8000/api/post/update/".concat(this.$route.params.id);
       this.axios.post(uri, this.post).then(function (response) {
         _this2.$router.push({
           name: 'posts'
