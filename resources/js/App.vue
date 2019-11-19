@@ -1,5 +1,4 @@
 // App.vue
-
 <template>
     <div>
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">

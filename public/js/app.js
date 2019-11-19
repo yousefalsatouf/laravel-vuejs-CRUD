@@ -1872,7 +1872,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
 /* harmony default export */ __webpack_exports__["default"] = ({});
 
 /***/ }),
@@ -1925,7 +1924,7 @@ __webpack_require__.r(__webpack_exports__);
     addPost: function addPost() {
       var _this = this;
 
-      var uri = 'http://127.0.0.1:8000/create';
+      var uri = 'http://127.0.0.1:8000/api/post/create';
       this.axios.post(uri, this.post).then(function (response) {
         _this.$router.push({
           name: 'posts'
