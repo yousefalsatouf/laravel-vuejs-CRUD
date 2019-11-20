@@ -12,6 +12,12 @@
                 <li class="nav-item">
                     <router-link to="/create" class="nav-link">Create Post</router-link>
                 </li>
+                <li class="nav-item">
+                    <router-link :to="{ name: 'login' }" class="nav-link">Login</router-link>
+                </li>
+                <li class="nav-item">
+                    <router-link :to="{ name: 'register' }" class="nav-link">Register</router-link>
+                 </li>
 
             </ul>
         </nav><br />
