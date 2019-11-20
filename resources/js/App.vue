@@ -17,8 +17,10 @@
                 </li>
                 <li class="nav-item">
                     <router-link :to="{ name: 'register' }" class="nav-link">Register</router-link>
-                 </li>
-
+                </li>
+                <li v-if="$auth.check()" class="pull-right">
+                    <a href="#" @click.prevent="$auth.logout()">Logout</a>
+                </li>
             </ul>
         </nav><br />
         <div class="container">
