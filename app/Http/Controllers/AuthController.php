@@ -2,13 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Auth\LoginFormRequest;
 use App\Http\Requests\RegisterFormRequest;
 use Illuminate\Foundation\Auth\User;
 use Illuminate\Http\Request;
+use Tymon\JWTAuth\Contracts\Providers\Auth;
+use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\JWTAuth;
 
 class AuthController extends Controller
 {
+    protected $auth;
+
+    public function __construct(JWTAuth $auth)
+    {
+        $this->auth = $auth;
+    }
+
     public function register(RegisterFormRequest $request)
     {
         $user = new User;
@@ -22,20 +32,31 @@ class AuthController extends Controller
         ], 200);
     }
 
-    public function login(Request $request)
+    public function login(LoginFormRequest $request)
     {
-        $credentials = $request->only('email', 'password');
-        if ( ! $token = JWTAuth::attempt($credentials)) {
-            return response([
-                'status' => 'error',
-                'error' => 'invalid.credentials',
-                'msg' => 'Invalid Credentials.'
-            ], 400);
+        try {
+            if (!$token = $this->auth->attempt($request->only('email', 'password'))) {
+                return response()->json([
+                    'errors' => [
+                        'root' => 'Could not sign you in with that credentials. Please try again.'
+                    ]
+                ], 401);
+            }
+        } catch (JWTException $e) {
+            return response()->json([
+                'errors' => [
+                    'root' => 'Failed'
+                ]
+            ], $e->getStatusCode());
         }
-        return response([
-            'status' => 'success'
-        ])
-            ->header('Authorization', $token);
+
+        // everthing is ok
+        return response()->json([
+            'data' => $request->user(),
+            'meta' => [
+                'token' => $token
+            ]
+        ], 200);
     }
 
     public function user(Request $request)
@@ -54,12 +75,4 @@ class AuthController extends Controller
         ]);
     }
 
-    public function logout()
-    {
-        JWTAuth::invalidate();
-        return response([
-            'status' => 'success',
-            'msg' => 'Logged out Successfully.'
-        ], 200);
-    }
 }

@@ -65,7 +65,7 @@ const routes = [
     }
 ];
 
-Vue.router = router;
+
 Vue.use(require('@websanova/vue-auth'), {
     auth: require('@websanova/vue-auth/drivers/auth/bearer.js'),
     http: require('@websanova/vue-auth/drivers/http/axios.1.x.js'),
@@ -74,4 +74,5 @@ Vue.use(require('@websanova/vue-auth'), {
 
 
 const router = new VueRouter({ mode: 'history', routes: routes});
+Vue.router = router;
 const app = new Vue(Vue.util.extend({ router }, App)).$mount('#app');
